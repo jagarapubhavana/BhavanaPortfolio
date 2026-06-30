@@ -3,296 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhavana EatZone</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <title>Jagarapu Bhavana | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* --- General Styles --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
-        body { background: #F8F9FA; color: #333; }
-
-        /* --- Navigation & Header --- */
-        header { background: #1A3626; color: white; text-align: center; padding: 30px 20px; letter-spacing: 1px; }
-        header p { font-weight: 300; margin-top: 5px; color: #E2E8F0; }
-        nav { background: #2C5F2D; padding: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; text-decoration: none; margin: 0 15px; font-size: 16px; font-weight: 600; transition: color 0.3s ease; }
-        nav a:hover { color: #E76F51; }
-
-        /* --- Sections Common --- */
-        section { padding: 60px 20px; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; color: #1A3626; margin-bottom: 40px; font-size: 32px; position: relative; }
-        h2::after { content: ''; display: block; width: 60px; height: 4px; background: #E76F51; margin: 10px auto 0; border-radius: 2px; }
-
-        /* --- Home Section --- */
-        #home { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80') center/cover; height: 400px; display: flex; justify-content: center; align-items: center; color: white; font-size: 48px; font-weight: 700; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); text-align: center; }
-
-        /* --- Menu Section --- */
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 200px; object-fit: cover; }
-        .card h3 { text-align: center; margin: 15px 10px 5px; color: #2C5F2D; font-size: 20px; }
-        .card p { text-align: center; color: #666; padding: 0 15px; font-size: 14px; flex-grow: 1; }
-        .price { color: #E76F51; font-size: 22px; font-weight: 700; text-align: center; margin: 15px 10px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: #f4f7f6; color: #333; background-image: radial-gradient(#cbd5e1 2px, transparent 2px); background-size: 40px 40px; overflow-x: hidden; }
         
-        /* Buttons inside cards */
-        .btn-group { display: flex; gap: 10px; padding: 0 15px 20px; }
-        .btn { flex: 1; border: none; padding: 10px; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.3s; color: white; text-align: center;}
-        .btn-cart { background: #2C5F2D; }
-        .btn-cart:hover { background: #1A3626; }
-        .btn-order { background: #E76F51; }
-        .btn-order:hover { background: #D65A31; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 8%; background: rgba(255, 255, 255, 0.9); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .logo { font-size: 24px; font-weight: 800; color: #008080; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 600; }
 
-        /* --- Cart & Orders Sections --- */
-        .list-container { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
-        .list-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-        .total-display { text-align: right; font-size: 20px; font-weight: 700; color: #E76F51; margin-top: 15px; }
-
-        /* --- Checkout Modal --- */
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 200; justify-content: center; align-items: center; }
-        .modal-content { background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #2C5F2D;}
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif;}
-        .modal-buttons { display: flex; gap: 10px; margin-top: 20px; }
-
-        footer { background: #1A3626; color: #E2E8F0; text-align: center; padding: 25px; font-size: 14px; }
+        .hero { display: flex; align-items: center; justify-content: space-between; padding: 60px 8%; min-height: 80vh; }
+        .hero-text { flex: 1; max-width: 50%; }
+        .btn-solid { background: #008080; color: white; padding: 12px 30px; border-radius: 25px; text-decoration: none; display: inline-block; margin-top: 20px; }
+        
+        .content { padding: 80px 8%; background: white; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: #f9f9f9; padding: 30px; border-radius: 12px; border-top: 4px solid #FFA500; }
+        
+        .image-circle-bg { width: 400px; height: 400px; background-color: #FFA500; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        .image-circle-bg img { width: 100%; height: 100%; object-fit: contain; background: white; }
     </style>
 </head>
 <body>
-
-    <header>
-        <h1>🍴 Welcome to Bhavana EatZone</h1>
-        <p>Fresh • Healthy • Delicious</p>
-    </header>
-
     <nav>
-        <a href="#home">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#cart-section">Cart (<span id="nav-cart-count">0</span>)</a>
-        <a href="#orders-section">My Orders</a>
+        <div class="logo">Bhavana</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+        </div>
     </nav>
 
-    <section id="home">Enjoy Delicious Food</section>
-
-    <section id="menu">
-        <div class="container">
-            <h2>Our Menu</h2>
-            <div class="menu-grid" id="menu-container">
-                </div>
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Hi There, I'm Jagarapu <span>Bhavana</span></h1>
+            <p>Software development student with a focus on Python & C programming.</p>
+            <a href="Jagarapu_Bhavana_Resume_v3.pdf" download class="btn-solid">Download Resume ➔</a>
+        </div>
+        <div class="image-circle-bg">
+            <img src="bha.jpg" alt="Jagarapu Bhavana">
         </div>
     </section>
 
-    <section id="cart-section">
-        <div class="container">
-            <h2>Your Shopping Cart</h2>
-            <div class="list-container" id="cart-container">
-                <div id="cart-items">Your cart is empty.</div>
-                <div class="total-display" id="cart-total">Total: ₹0</div>
-                <button class="btn btn-order" style="width: 100%; margin-top: 15px; display: none;" id="checkout-btn" onclick="openCheckout()">Proceed to Checkout</button>
+    <section class="content" id="about">
+        <h2>About Me</h2>
+        <div class="card">
+            <p><strong>Location:</strong> Andhra Pradesh, India</p>
+            <p><strong>Phone:</strong> 9441481411 | <strong>Email:</strong> jagarapubhavana@gmail.com</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bhavana-jagarapu-840741384/">Visit LinkedIn Profile</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/jagarapubhavana">Visit GitHub Profile</a></p>
+        </div>
+    </section>
+
+    <section class="content" id="skills">
+        <h2>Skills & Interests</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Technical Skills</h3>
+                <p>C Programming, Python Application Development.</p>
+            </div>
+            <div class="card">
+                <h3>Soft Skills</h3>
+                <p>Communication, Critical Thinking, Team Collaboration.</p>
             </div>
         </div>
     </section>
 
-    <section id="orders-section">
-        <div class="container">
-            <h2>My Orders</h2>
-            <div class="list-container" id="orders-container">
-                <p>You haven't placed any orders yet.</p>
+    <section class="content" id="education">
+        <h2>Education</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Aditya Women's Degree College</h3>
+                <p>Degree</p>
+            </div>
+            <div class="card">
+                <h3>Sri Chaitanya Junior College</h3>
+                <p>Intermediate</p>
+            </div>
+            <div class="card">
+                <h3>Visakha Public School</h3>
+                <p>Schooling</p>
             </div>
         </div>
     </section>
 
-    <div class="modal" id="checkout-modal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px; color: #1A3626;">Complete Your Order</h2>
-            <form id="checkout-form" onsubmit="submitOrder(event)">
-                
-                <div class="form-group">
-                    <label>Full Name</label>
-                    <input type="text" id="name" required placeholder="John Doe">
-                </div>
-
-                <div class="form-group">
-                    <label>Delivery Address</label>
-                    <textarea id="address" rows="3" required placeholder="Enter full address..."></textarea>
-                    <button type="button" class="btn btn-cart" style="margin-top: 5px; width: 100%;" onclick="getLocation()">📍 Use My Current Location</button>
-                </div>
-
-                <div class="form-group">
-                    <label>Payment Method</label>
-                    <select id="payment" required>
-                        <option value="Cash on Delivery">Cash on Delivery</option>
-                        <option value="Credit/Debit Card">Credit/Debit Card</option>
-                        <option value="UPI">UPI</option>
-                    </select>
-                </div>
-
-                <div class="modal-buttons">
-                    <button type="button" class="btn" style="background: #ccc; color: black;" onclick="closeCheckout()">Cancel</button>
-                    <button type="submit" class="btn btn-order">Confirm Order</button>
-                </div>
-            </form>
-        </div>
+    <section class="content" id="projects">
+        <h2>Projects</h2>
+        <div class="grid-container">
+      
+           <a href="http://localhost:3000/" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <h3>Bhavana EatZone</h3>
+        <p>Full-stack food ordering platform.</p>
+        <p><strong>Live:</strong> View Project</p>
     </div>
-
-    <footer>
-        <p>© 2026 Bhavana EatZone | Designed with HTML, CSS & JS</p>
-    </footer>
-
-    <script>
-        // --- 1. Data State ---
-        const menuData = [
-            { id: 1, name: "Cheese Burger", desc: "Tasty grilled burger with cheese.", price: 149, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=60" },
-            { id: 2, name: "Veg Pizza", desc: "Fresh vegetables with mozzarella cheese.", price: 249, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" },
-            { id: 3, name: "Chicken Biryani", desc: "Spicy and flavorful dum biryani.", price: 299, img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=600&auto=format&fit=crop&q=60" },
-            { id: 4, name: "Healthy Salad", desc: "Fresh vegetables with healthy dressing.", price: 129, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=60" },
-            { id: 5, name: "Ice Cream", desc: "Vanilla ice cream with chocolate topping.", price: 99, img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=500&q=60" },
-            { id: 6, name: "Hot Coffee", desc: "Freshly brewed premium coffee.", price: 79, img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=60" },
-            { id: 7, name: "Creamy Pasta", desc: "Penne pasta in a rich garlic alfredo sauce.", price: 219, img: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=500&q=60" },
-            { id: 8, name: "Spicy Tacos", desc: "Crispy shells filled with seasoned meat and salsa.", price: 179, img: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=500&q=60" },
-            { id: 9, name: "Sushi Platter", desc: "Freshly rolled assorted sushi with soy sauce.", price: 349, img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=60" },
-            { id: 10, name: "Chocolate Brownie", desc: "Warm fudge brownie with a molten center.", price: 119, img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=60" },
-            { id: 11, name: "Masala Dosa", desc: "Crispy crepe served with potato curry and chutney.", price: 110, img: "https://images.unsplash.com/photo-1743517894265-c86ab035adef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFzYWwlMjBkb3NhfGVufDB8fDB8fHww?auto=format&fit=crop&w=500&q=60" },
-            { id: 12, name: "Idli Sambar", desc: "Steamed rice cakes with flavorful lentil soup.", price: 80, img: "https://media.istockphoto.com/id/182491284/photo/idli-sambhar-and-chutney-south-indian-dish-on-banana-leaf.webp?a=1&b=1&s=612x612&w=0&k=20&c=qokk2yfClv0DdsQmiLhL3BFNJaftxeYIiNmp72TV8UQ=" }
-        ];
-
-        let cart = [];
-        let orderHistory = [];
-
-        // --- 2. Render Menu ---
-        const menuContainer = document.getElementById("menu-container");
-        menuData.forEach(item => {
-            menuContainer.innerHTML += `
-                <div class="card">
-                    <img src="${item.img}" alt="${item.name}">
-                    <h3>${item.name}</h3>
-                    <p>${item.desc}</p>
-                    <div class="price">₹${item.price}</div>
-                    <div class="btn-group">
-                        <button class="btn btn-cart" onclick="addToCart(${item.id})">Add to Cart</button>
-                        <button class="btn btn-order" onclick="orderNow(${item.id})">Order Now</button>
-                    </div>
-                </div>
-            `;
-        });
-
-        // --- 3. Cart Functions ---
-        function addToCart(id) {
-            const item = menuData.find(i => i.id === id);
-            cart.push(item);
-            updateCartUI();
-            alert(`${item.name} added to cart!`);
-        }
-
-        function orderNow(id) {
-            addToCart(id);
-            openCheckout();
-        }
-
-        function updateCartUI() {
-            const cartItemsDiv = document.getElementById("cart-items");
-            const cartTotalDiv = document.getElementById("cart-total");
-            const checkoutBtn = document.getElementById("checkout-btn");
-            const navCount = document.getElementById("nav-cart-count");
-
-            navCount.innerText = cart.length;
-
-            if (cart.length === 0) {
-                cartItemsDiv.innerHTML = "Your cart is empty.";
-                cartTotalDiv.innerText = "Total: ₹0";
-                checkoutBtn.style.display = "none";
-                return;
-            }
-
-            cartItemsDiv.innerHTML = "";
-            let total = 0;
-            cart.forEach((item, index) => {
-                cartItemsDiv.innerHTML += `<div class="list-item"><span>${item.name}</span><span>₹${item.price}</span></div>`;
-                total += item.price;
-            });
-            
-            cartTotalDiv.innerText = `Total: ₹${total}`;
-            checkoutBtn.style.display = "block";
-        }
-
-        // --- 4. Checkout & Map/Location Logic ---
-        function openCheckout() {
-            if(cart.length === 0) {
-                alert("Cart is empty!");
-                return;
-            }
-            document.getElementById("checkout-modal").style.display = "flex";
-        }
-
-        function closeCheckout() {
-            document.getElementById("checkout-modal").style.display = "none";
-        }
-
-        function getLocation() {
-            const addressInput = document.getElementById("address");
-            addressInput.value = "Locating...";
-            
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    (position) => {
-                        addressInput.value = `Lat: ${position.coords.latitude.toFixed(4)}, Lng: ${position.coords.longitude.toFixed(4)} (GPS Location)`;
-                    },
-                    () => { addressInput.value = "Location access denied. Please type your address."; }
-                );
-            } else {
-                addressInput.value = "Geolocation is not supported by this browser.";
-            }
-        }
-
-        // --- 5. Submit Order ---
-        function submitOrder(event) {
-            event.preventDefault(); 
-
-            const name = document.getElementById("name").value;
-            const address = document.getElementById("address").value;
-            const payment = document.getElementById("payment").value;
-            
-            const total = cart.reduce((sum, item) => sum + item.price, 0);
-
-            const newOrder = {
-                id: "ORD" + Math.floor(Math.random() * 10000),
-                name: name,
-                address: address,
-                payment: payment,
-                total: total,
-                items: [...cart],
-                date: new Date().toLocaleDateString()
-            };
-
-            orderHistory.push(newOrder);
-            
-            cart = [];
-            updateCartUI();
-            updateOrdersUI();
-            closeCheckout();
-            document.getElementById("checkout-form").reset();
-            
-            alert(`Thank you, ${name}! Your order ${newOrder.id} has been placed.`);
-        }
-
-        // --- 6. Orders UI ---
-        function updateOrdersUI() {
-            const ordersContainer = document.getElementById("orders-container");
-            if (orderHistory.length === 0) return;
-
-            ordersContainer.innerHTML = "";
-            orderHistory.reverse().forEach(order => {
-                ordersContainer.innerHTML += `
-                    <div style="border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 8px;">
-                        <h4 style="color: #2C5F2D; margin-bottom: 10px;">Order ID: ${order.id} <span style="float:right; font-size: 12px; color: #666;">${order.date}</span></h4>
-                        <p><strong>Total:</strong> ₹${order.total} | <strong>Payment:</strong> ${order.payment}</p>
-                        <p><strong>Deliver to:</strong> ${order.address}</p>
-                    </div>
-                `;
-            });
-            orderHistory.reverse();
-        }
-    </script>
+</a>
+            <a href="https://jagarapubhavana.github.io/BhavanaPortfolio/" style="text-decoration: none; color: inherit;">
+    <div class="card">
+        <h3>Bhavana Portfolio</h3>
+        <p>Personal portfolio website.</p>
+        <p><strong>Live:</strong> View Project</p>
+    </div>
+</a>
+        </div>
+    </section>
 </body>
 </html>
+
+
+
+
+
+
+
